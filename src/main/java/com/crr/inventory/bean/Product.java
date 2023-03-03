@@ -19,8 +19,6 @@ public class Product {
     @Column
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private List<ProductCategory> categories;
 
     public String getProductName() {
         return productName;
@@ -46,13 +44,6 @@ public class Product {
         this.description = description;
     }
 
-    public List<ProductCategory> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<ProductCategory> categories) {
-        this.categories = categories;
-    }
 
     public void setId(Long id) {
         this.id = id;
