@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "categories")
-public class ProductCategory {
+@Table(name = "locations")
+public class ProductLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -14,7 +14,7 @@ public class ProductCategory {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany(mappedBy = "locations")
     private List<Product> products;
 
     public long getId() {

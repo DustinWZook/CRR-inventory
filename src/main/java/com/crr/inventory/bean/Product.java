@@ -19,6 +19,44 @@ public class Product {
     @Column
     private String description;
 
+    @Column
+    private double wholesalePrice;
+
+    @Column
+    private double storePrice;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "product_location",
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "location_id")}
+    )
+    private List<ProductLocation> locations;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "product_category",
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id")}
+    )
+
+    private List<ProductCategory> categories;
+
+    public double getStorePrice() {
+        return storePrice;
+    }
+
+    public void setStorePrice(double storePrice) {
+        this.storePrice = storePrice;
+    }
+
+    public List<ProductCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<ProductCategory> categories) {
+        this.categories = categories;
+    }
 
     public String getProductName() {
         return productName;
@@ -51,5 +89,21 @@ public class Product {
 
     public Long getId() {
         return id;
+    }
+
+    public double getWholesalePrice() {
+        return wholesalePrice;
+    }
+
+    public void setWholesalePrice(double wholesalePrice) {
+        this.wholesalePrice = wholesalePrice;
+    }
+
+    public List<ProductLocation> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<ProductLocation> locations) {
+        this.locations = locations;
     }
 }
