@@ -25,6 +25,8 @@ public class Product {
     @Column
     private double storePrice;
 
+    @Column
+    private int quantity;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "product_location",
@@ -41,6 +43,14 @@ public class Product {
     )
 
     private List<ProductCategory> categories;
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public double getStorePrice() {
         return storePrice;
