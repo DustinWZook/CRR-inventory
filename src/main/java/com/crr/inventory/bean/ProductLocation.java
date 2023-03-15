@@ -17,6 +17,20 @@ public class ProductLocation {
     @ManyToMany(mappedBy = "locations")
     private List<Product> products;
 
+    public ProductLocation() {
+    }
+
+    public ProductLocation(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public ProductLocation(long id, String name, List<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
+    }
+
     public long getId() {
         return id;
     }

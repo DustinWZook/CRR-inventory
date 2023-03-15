@@ -41,8 +41,24 @@ public class Product {
             joinColumns = {@JoinColumn(name = "product_id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id")}
     )
-
     private List<ProductCategory> categories;
+
+
+    public Product() {
+    }
+
+    public Product(Long id, String productName, String brandName, String description, double wholesalePrice, double storePrice, int quantity, List<ProductLocation> locations, List<ProductCategory> categories) {
+        this.id = id;
+        this.productName = productName;
+        this.brandName = brandName;
+        this.description = description;
+        this.wholesalePrice = wholesalePrice;
+        this.storePrice = storePrice;
+        this.quantity = quantity;
+        this.locations = locations;
+        this.categories = categories;
+    }
+
 
     public int getQuantity() {
         return quantity;

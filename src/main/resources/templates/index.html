@@ -15,6 +15,19 @@
 <!--	</ul>-->
 <!--</nav>-->
 	
+	<form th:action="@{/createLocation}" th:method="post" th:object="${productLocation}">
+		New Location:
+		<input name="newLocation" id="newLocation">
+		<br />
+		<input type="submit" />
+	</form>
+	
+	<form th:action="@{/createCategory}" th:method="post" th:object="${productCategory}">
+		New Category:
+		<input name="newCategory" id="newCategory">
+		<br />
+		<input type="submit" />
+	</form>
 	<table class="table">
 		<thead>
 		<tr>

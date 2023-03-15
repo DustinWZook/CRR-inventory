@@ -17,6 +17,20 @@ public class ProductCategory {
     @ManyToMany(mappedBy = "categories")
     private List<Product> products;
 
+    public ProductCategory() {
+    }
+
+    public ProductCategory(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public ProductCategory(long id, String name, List<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
+    }
+
     public long getId() {
         return id;
     }
