@@ -28,6 +28,28 @@
 		<br />
 		<input type="submit" />
 	</form>
+	
+	<form th:action="@{/createProduct}" th:method="post" th:object="${product}">
+		New Product Name:
+		<input name="newProductName">
+		New Product Brand:
+		<input name="newProductBrand">
+		New Product Description:
+		<input name="newProductDescription">
+		New Product Categories:
+		<input name="newProductCategories">
+		New Product Location:
+		<input name="newProductLocation">
+		New Product Quantity:
+		<input name="newProductQuantity">
+		New Product Wholesale Price:
+		<input name="newProductWholesalePrice">
+		New Product Store Price:
+		<input name="newProductStorePrice">
+		<br />
+		<input type="submit" />
+	</form>
+	
 	<table class="table">
 		<thead>
 		<tr>
