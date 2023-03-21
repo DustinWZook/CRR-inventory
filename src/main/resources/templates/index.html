@@ -15,19 +15,6 @@
 <!--	</ul>-->
 <!--</nav>-->
 	
-	<form th:action="@{/createLocation}" th:method="post" th:object="${productLocation}">
-		New Location:
-		<input name="newLocation" id="newLocation">
-		<br />
-		<input type="submit" />
-	</form>
-	
-	<form th:action="@{/createCategory}" th:method="post" th:object="${productCategory}">
-		New Category:
-		<input name="newCategory" id="newCategory">
-		<br />
-		<input type="submit" />
-	</form>
 	
 	<form th:action="@{/createProduct}" th:method="post" th:object="${product}">
 		New Product Name:
@@ -37,7 +24,7 @@
 		New Product Description:
 		<input name="newProductDescription">
 		New Product Categories:
-		<input name="newProductCategories">
+		<input name="newProductCategory">
 		New Product Location:
 		<input name="newProductLocation">
 		New Product Quantity:
@@ -50,14 +37,20 @@
 		<input type="submit" />
 	</form>
 	
+<!--	<div th:each="product: ${products}">-->
+<!--		<p th:text="${product.getProductName()}"></p>-->
+<!--		<p th:text="${product.brandName}"></p>-->
+<!--		<p th:text="${product.description}"></p>-->
+<!--	</div>-->
+<!--	-->
 	<table class="table">
 		<thead>
 		<tr>
 			<th scope="col">Name</th>
 			<th scope="col">Brand</th>
 			<th scope="col">Description</th>
-			<th scope="col">Categories</th>
-			<th scope="col">Locations</th>
+			<th scope="col">Category</th>
+			<th scope="col">Location</th>
 			<th scope="col">quantity</th>
 			<th scope="col">Wholesale price</th>
 			<th scope="col">Total wholesale</th>
@@ -67,25 +60,30 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>@mdo</td>
-		</tr>
-		<tr>
-			<th scope="row">2</th>
-			<td>Jacob</td>
-			<td>Thornton</td>
-			<td>@fat</td>
-		</tr>
-		<tr>
-			<th scope="row">3</th>
-			<td>Larry the Bird</td>
-			<td>@twitter</td>
+		<tr th:each="product: ${products}">
+			<td th:text="${product.getProductName()}" />
+			<td th:text="${product.brandName}" />
+			<td th:text="${product.description}" />
+			<td th:text="${product.productCategory}" />
+			<td th:text="${product.productLocation}" />
+			<td th:text="${product.quantity}" />
+			<td th:text="${product.wholesalePrice}" />
+			<td>total wholesale price</td>
+			<td th:text="${product.storePrice}" />
+			<td>total store price</td>
 		</tr>
 		</tbody>
 	</table>
+	
+<!--	<div th:each="product: ${products}">-->
+<!--		<p th:text="${product.getProductName()}"></p>-->
+<!--		<p th:text="${product.brandName}"></p>-->
+<!--		<p th:text="${product.description}"></p>-->
+<!--	</div>-->
+<!--	<div>-->
+<!--		<p>test test</p>-->
+<!--	</div>-->
+	
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 

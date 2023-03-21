@@ -27,27 +27,17 @@ public class Product {
 
     @Column
     private int quantity;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "product_location",
-            joinColumns = {@JoinColumn(name = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "location_id")}
-    )
-    private List<ProductLocation> locations;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "product_category",
-            joinColumns = {@JoinColumn(name = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "category_id")}
-    )
-    private List<ProductCategory> categories;
+    @Column
+    private String productLocation;
 
+    @Column
+    private String productCategory;
 
     public Product() {
     }
 
-    public Product(Long id, String productName, String brandName, String description, double wholesalePrice, double storePrice, int quantity, List<ProductLocation> locations, List<ProductCategory> categories) {
+    public Product(Long id, String productName, String brandName, String description, double wholesalePrice, double storePrice, int quantity, String productLocation, String productCategory) {
         this.id = id;
         this.productName = productName;
         this.brandName = brandName;
@@ -55,8 +45,8 @@ public class Product {
         this.wholesalePrice = wholesalePrice;
         this.storePrice = storePrice;
         this.quantity = quantity;
-        this.locations = locations;
-        this.categories = categories;
+        this.productLocation = productLocation;
+        this.productCategory = productCategory;
     }
 
 
@@ -76,13 +66,6 @@ public class Product {
         this.storePrice = storePrice;
     }
 
-    public List<ProductCategory> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<ProductCategory> categories) {
-        this.categories = categories;
-    }
 
     public String getProductName() {
         return productName;
@@ -125,11 +108,20 @@ public class Product {
         this.wholesalePrice = wholesalePrice;
     }
 
-    public List<ProductLocation> getLocations() {
-        return locations;
+    public String getProductLocation() {
+        return productLocation;
     }
 
-    public void setLocations(List<ProductLocation> locations) {
-        this.locations = locations;
+    public void setProductLocation(String productLocation) {
+        this.productLocation = productLocation;
+
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 }
