@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inventory</title>
+	<title>Add a Product</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 	      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link th:href="@{/css/style.css}" rel="stylesheet">
@@ -29,42 +29,52 @@
 		</div>
 	</nav>
 	
-	<table class="table">
-		<thead>
-		<tr>
-			<th scope="col">Name</th>
-			<th scope="col">Brand</th>
-			<th scope="col">Description</th>
-			<th scope="col">Category</th>
-			<th scope="col">Location</th>
-			<th scope="col">quantity</th>
-			<th scope="col">Wholesale price</th>
-			<th scope="col">Total wholesale</th>
-			<th scope="col">Store price</th>
-			<th scope="col">Total store price</th>
-			<th>Actions</th>
-		
-		</tr>
-		</thead>
-		<tbody>
-		<tr th:each="product: ${products}">
-			<td th:text="${product.ProductName}"/>
-			<td th:text="${product.brandName}"/>
-			<td th:text="${product.description}"/>
-			<td th:text="${product.productCategory}"/>
-			<td th:text="${product.productLocation}"/>
-			<td th:text="${product.quantity}"/>
-			<td th:text="${product.wholesalePrice}"/>
-			<td th:text="${product.totalWholesalePrice}"/>
-			<td th:text="${product.storePrice}"/>
-			<td th:text="${product.totalStorePrice}"/>
-			<td>
-				<button>edit</button>
-				<button>delete</button>
-			</td>
-		</tr>
-		</tbody>
-	</table>
+	<form  th:action="@{/addProduct}" th:method="post" th:object="${product}">
+		<div class="d-flex">
+			<div>
+				New Product Name:
+				<br>
+				<input name="newProductName">
+				<br>
+				New Product Brand:
+				<br>
+				<input name="newProductBrand">
+				<br>
+				New Product Description:
+				<br>
+				<input name="newProductDescription">
+				<br>
+				New Product Categories:
+				<br>
+				<input name="newProductCategory">
+			</div>
+			<div>
+				New Product Location:
+				<br>
+				<input name="newProductLocation">
+				<br>
+				New Product Quantity:
+				<br>
+				<input name="newProductQuantity">
+				<br>
+				New Product Wholesale Price:
+				<br>
+				<input name="newProductWholesalePrice">
+				<br>
+				New Product Store Price:
+				<br>
+				<input name="newProductStorePrice">
+				<br/>
+			
+			</div>
+		</div>
+		<input type="submit"/>
+	</form>
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	        crossorigin="anonymous"></script>
 	
 </body>
 </html>

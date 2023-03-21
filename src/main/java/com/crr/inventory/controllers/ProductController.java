@@ -24,12 +24,13 @@ public class ProductController {
         return "index";
     }
 
-//    @GetMapping("/index")
-//    public String index(){
-//    return "index";
-//    }
 
-    @PostMapping("/createProduct")
+    @GetMapping("/addProduct")
+    public String addProduct(){
+    return "addProduct";
+    }
+
+    @PostMapping("/addProduct")
     public String createProduct(@ModelAttribute Product product,@RequestParam(name = "newProductName") String productName,@RequestParam(name = "newProductBrand") String productBrand,@RequestParam(name = "newProductDescription") String productDescription,@RequestParam(name = "newProductQuantity") int productQuantity,@RequestParam(name = "newProductWholesalePrice") double productWholesale,@RequestParam(name = "newProductStorePrice") double productStorePrice, @RequestParam(name = "newProductCategory") String productCategory, @RequestParam(name = "newProductLocation") String productLocation) {
         // save the ad...
         // redirect to to the index with all the ads
@@ -41,7 +42,10 @@ public class ProductController {
         product.setStorePrice(productStorePrice);
         product.setProductCategory(productCategory);
         product.setProductLocation(productLocation);
-
+        double totalStorePrice = ProductRepository.sumOfStorePrice(productStorePrice, productQuantity);
+        double totalWholesalePrice = ProductRepository.sumOfWholesalePrice(productWholesale, productQuantity);
+        product.setTotalStorePrice(totalStorePrice);
+        product.setTotalWholesalePrice(totalWholesalePrice);
 
         productDao.save(product);
 

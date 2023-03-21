@@ -23,7 +23,13 @@ public class Product {
     private double wholesalePrice;
 
     @Column
+    private double totalWholesalePrice;
+
+    @Column
     private double storePrice;
+
+    @Column
+    private double totalStorePrice;
 
     @Column
     private int quantity;
@@ -37,7 +43,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String productName, String brandName, String description, double wholesalePrice, double storePrice, int quantity, String productLocation, String productCategory) {
+    public Product(Long id, String productName, String brandName, String description, double wholesalePrice, double storePrice, int quantity, String productLocation, String productCategory, double totalStorePrice, double totalWholesalePrice) {
         this.id = id;
         this.productName = productName;
         this.brandName = brandName;
@@ -47,8 +53,25 @@ public class Product {
         this.quantity = quantity;
         this.productLocation = productLocation;
         this.productCategory = productCategory;
+        this.totalStorePrice = totalStorePrice;
+        this.totalWholesalePrice = totalWholesalePrice;
     }
 
+    public double getTotalWholesalePrice() {
+        return totalWholesalePrice;
+    }
+
+    public void setTotalWholesalePrice(double totalWholesalePrice) {
+        this.totalWholesalePrice = totalWholesalePrice;
+    }
+
+    public double getTotalStorePrice() {
+        return totalStorePrice;
+    }
+
+    public void setTotalStorePrice(double totalStorePrice) {
+        this.totalStorePrice = totalStorePrice;
+    }
 
     public int getQuantity() {
         return quantity;
