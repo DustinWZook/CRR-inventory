@@ -31,6 +31,7 @@ public class ProductExcelExporter {
         Row row = sheet.createRow(0);
 
         CellStyle style = workbook.createCellStyle();
+//        CellStyle style2 = workbook.createCellStyle();
         XSSFFont font = workbook.createFont();
         font.setBold(true);
         font.setFontHeight(16);
@@ -54,8 +55,10 @@ public class ProductExcelExporter {
         Cell cell = row.createCell(columnCount);
         if (value instanceof Integer) {
             cell.setCellValue((Integer) value);
-        } else if (value instanceof Boolean) {
-            cell.setCellValue((Boolean) value);
+        } else if (value instanceof Double) {
+            cell.setCellValue((Double) value);
+        }else if (value instanceof Long) {
+            cell.setCellValue((Long) value);
         }else {
             cell.setCellValue((String) value);
         }
