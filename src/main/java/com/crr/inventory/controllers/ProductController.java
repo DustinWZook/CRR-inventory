@@ -81,11 +81,12 @@ public class ProductController {
     }
 
     @PostMapping("products/delete")
-    public String deleteProduct(@RequestParam("id") long id){
+    public String deleteProduct(@RequestParam(name = "id") long id){
 
         Product product = productDao.getReferenceById(id);
-        System.out.println("testing delete method");
-        System.out.println(product.getProductName());
+        productDao.delete(product);
+//        System.out.println("testing delete method");
+//        System.out.println(product.getProductName());
     return "redirect:/";
     }
 

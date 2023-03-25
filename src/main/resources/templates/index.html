@@ -59,8 +59,9 @@
 			<td th:text="${product.totalStorePrice}"/>
 			<td>
 				<button>edit</button>
-				<form id="id" th:id="${product.id}" th:action="@{products/delete}" th:method="post" th:value="${product.id}">
-					<input th:id="${product.id}" th:value="${product.id}" type="submit" th:text="delete">
+				<form th:action="@{products/delete}" th:method="post">
+					<input type="hidden" name="id" th:value="${product.id}">
+					<input th:value="delete" type="submit" >
 				</form>
 			</td>
 		</tr>
