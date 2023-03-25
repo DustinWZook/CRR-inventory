@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.stream.Location;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -78,5 +79,25 @@ public class ProductController {
 
         return "redirect:/";
     }
+
+    @PostMapping("products/delete")
+    public String deleteProduct(@RequestParam("id") long id){
+
+        Product product = productDao.getReferenceById(id);
+        System.out.println("testing delete method");
+        System.out.println(product.getProductName());
+    return "redirect:/";
+    }
+
+//    @PostMapping("/trip/delete")
+//    public String deleteTrip(@RequestParam("id") long id) {
+//
+//
+//        Trip trip = tripDao.getReferenceById(id);
+//
+//        tripDao.deleteById(trip.getId());
+//
+//        return "redirect:/profile";
+//    }
 
 }

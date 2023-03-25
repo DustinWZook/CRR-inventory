@@ -46,7 +46,8 @@
 		</thead>
 		<tbody>
 		<tr th:each="product: ${products}">
-			<td th:text="${product.ProductName}"/>
+			<td style="display: none" th:value="${product.id}"></td>
+			<td th:text="${product.productName}"/>
 			<td th:text="${product.brandName}"/>
 			<td th:text="${product.description}"/>
 			<td th:text="${product.productCategory}"/>
@@ -58,7 +59,9 @@
 			<td th:text="${product.totalStorePrice}"/>
 			<td>
 				<button>edit</button>
-				<button>delete</button>
+				<form id="id" th:id="${product.id}" th:action="@{products/delete}" th:method="post" th:value="${product.id}">
+					<input th:id="${product.id}" th:value="${product.id}" type="submit" th:text="delete">
+				</form>
 			</td>
 		</tr>
 		</tbody>

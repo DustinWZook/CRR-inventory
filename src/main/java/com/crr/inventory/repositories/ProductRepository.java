@@ -18,5 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
         return  sum;
     }
 
+    Product deleteProductById(long id);
 
 }
