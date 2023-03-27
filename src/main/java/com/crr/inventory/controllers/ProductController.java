@@ -15,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -90,15 +91,31 @@ public class ProductController {
     return "redirect:/";
     }
 
-//    @PostMapping("/trip/delete")
-//    public String deleteTrip(@RequestParam("id") long id) {
-//
-//
-//        Trip trip = tripDao.getReferenceById(id);
-//
-//        tripDao.deleteById(trip.getId());
-//
-//        return "redirect:/profile";
-//    }
+    @GetMapping("products/edit/{id}")
+    public String editProduct(@PathVariable String id, Model model){
+    model.addAttribute("id", id);
+
+    Optional<Product> product = productDao.findById(Long.valueOf(id));
+    model.addAttribute("product", product);
+
+
+    return "edit";
+    }
+
+    @PostMapping("products/edit")
+    public String edit(@RequestParam(name = "id", required = false) long id, Model model) {
+        model.addAttribute("id", id);
+
+        Optional<Product> product = productDao.findById(Long.valueOf(id));
+        model.addAttribute("product", product);
+        return "edit";
+    }
+
+    @PostMapping("products/editProduct")
+    public String editProduct(){
+
+
+        return "redirect:/";
+    }
 
 }

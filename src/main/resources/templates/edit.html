@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Edit Product</title>
+
+</head>
+<body>
+	<h1 th:text="${id}"></h1>
+	<form  th:action="@{products/editProduct}" th:method="post" th:object="${product}">
+		<div class="d-flex">
+			<div>
+				New Product Name:
+				<br>
+				<input name="editProductName" th:text="${product.name}">
+				<br>
+				New Product Brand:
+				<br>
+				<input name="editProductBrand">
+				<br>
+				New Product Description:
+				<br>
+				<input name="editProductDescription">
+				<br>
+				New Product Categories:
+				<br>
+				<input name="editProductCategory">
+			</div>
+			<div>
+				New Product Location:
+				<br>
+				<input name="editProductLocation">
+				<br>
+				New Product Quantity:
+				<br>
+				<input name="editProductQuantity">
+				<br>
+				New Product Wholesale Price:
+				<br>
+				<input name="editProductWholesalePrice">
+				<br>
+				New Product Store Price:
+				<br>
+				<input name="editProductStorePrice">
+				<br/>
+			
+			</div>
+		</div>
+		<input type="submit"/>
+	</form>
+	
+</body>
+</html>

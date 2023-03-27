@@ -58,7 +58,14 @@
 			<td th:text="${product.storePrice}"/>
 			<td th:text="${product.totalStorePrice}"/>
 			<td>
-				<button>edit</button>
+<!--				<form th:action="@{products/edit}" th:method="post">-->
+<!--					<input type="hidden" name="id" th:value="${product.id}">-->
+<!--					<input th:value="edit" type="submit" >-->
+<!--				</form>-->
+				<form th:action = "@{products/edit}" method = "POST">
+					<input type="hidden" name="id" th:value="${product.id}">
+					<input th:value="edit" type="submit">
+				</form>
 				<form th:action="@{products/delete}" th:method="post">
 					<input type="hidden" name="id" th:value="${product.id}">
 					<input th:value="delete" type="submit" >
